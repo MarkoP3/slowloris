@@ -1,4 +1,5 @@
 let maxConnections=1;
+let targetHost=process.argv[2];
 let konekcije=[];
 let maxedOut=false;
 const net=require('net');
@@ -26,5 +27,5 @@ function PoveziSe(host,port) {
 }
 setInterval(()=> {
 		if(maxConnections==0 || konekcije.length<maxConnections)
-        konekcije.push(new PoveziSe("127.0.0.1", 80));
+        konekcije.push(new PoveziSe(targetHost, 80));
     },1);
